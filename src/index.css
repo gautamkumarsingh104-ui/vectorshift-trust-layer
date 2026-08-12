@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0B0C12;
+  --panel: #13141C;
+  --panel-2: #191B26;
+  --line: #262838;
+  --text: #EDEDF3;
+  --muted: #8A8CA3;
+  --accent: #8B7CF6;
+  --accent-dim: #4A4270;
+  --source: #5FB8E3;
+  --source-bg: rgba(95, 184, 227, 0.10);
+  --warn: #F2B45D;
+  --warn-bg: rgba(242, 180, 93, 0.08);
+  --ok: #5FE3A8;
+  --danger: #E85D5D;
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-text font-body antialiased;
+  }
+}
+
+/* Dot grid — canvas area only */
+.dot-grid {
+  background-image: radial-gradient(circle, #1c1e2a 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Citation spans — source color only */
+.citation-span {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: rgba(95, 184, 227, 0.55);
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+  background: var(--source-bg);
+  border-radius: 3px;
+  padding: 0 3px;
+  margin: 0 -3px;
+  cursor: pointer;
+  transition: background 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.citation-span:hover {
+  background: rgba(95, 184, 227, 0.18);
+  text-decoration-color: var(--source);
+}
+
+.citation-span.active {
+  background: rgba(95, 184, 227, 0.24);
+  text-decoration-color: var(--source);
+  text-decoration-style: solid;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-dim);
+}
